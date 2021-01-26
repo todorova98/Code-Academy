@@ -22,8 +22,14 @@ void reverse(char s[])
 } 
 int main() 
 { 
-    char t[]="Hello\nI'm\nTanya\nThis\nis\nmy\nhomework";
-    printf("%s\n",t);
+    char t[1000];
+    int i=0;
+    char c;
+     while ((c = getchar()) != 33) // 33 по ASCII таблицата е удивителен знак(!) използвам го защото EOF не ми работи в тази задача
+    {
+        t[i] = c;
+        i++;
+    }
     printf("Reversed:\n");
     reverse(t); 
     return 0; 
