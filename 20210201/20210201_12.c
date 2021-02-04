@@ -18,4 +18,5 @@ int any(char s1[], char s2[]){
             }
         }
     }
+    return -1; /* ако не се среща */
 }
