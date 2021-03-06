@@ -1,103 +1,32 @@
+/*Задача 1. За да направи една етажерка, дърводелец се нуждае от следните
+компоненти: 4 дълги дъски, 6 къси дъски, 12 малки скоби, 2 големи скоби и 14 винта.
+Дърводелецът има на склад А дълги дъски, В къси дъски, С малки скоби, D големи скоби и E
+винта. Колко етажерки може да направи дърводелецът?
+Изход:
+С наличните на склад материали (33 дълги дъски, 55 къси дъски, 88 малки скоби, 22 големи
+скоби и 99 винта) дърводелецът може да направи 7 етажерки. */
 #include <stdio.h>
 #include <stdlib.h>
-const int board[7][7]={
-{3,3,2,4,3,1,2},
-{2,4,2,3,2,4,3},
-{4,2,3,2,4,2,1},
-{4,4,1,2,2,3,4},
-{3,2,3,3,4,2,2},
-{3,2,4,2,3,2,1},
-{1,1,3,3,4,2,0}};
-int curX=0,curY=0,oldX=0,oldY=0;
-void game();
-void printBoard();
-void goBack();
-void move(int dir);
-int main(void){
-    game();
+int main(){
+    int *arr=(int *)malloc(5*sizeof(int));
+    for(int i=0; i<5;i++){
+        printf("Enter %d amount:",i+1);
+        fflush(stdin);
+        scanf("%d",&arr[i]);
+    }
+    printf("with %d long planks, %d short planks, %d small details, %d large details and %d screws, the worker can make: ",arr[0],arr[1],arr[2],arr[3],arr[4]);
+    arr[0]/=4;
+    arr[1]/=6;
+    arr[2]/=12;
+    arr[3]/=2;
+    arr[4]/=14;
+    int count=arr[0];
+    for(int i=1; i<5; i++){
+        if(count>arr[i]){
+            count=arr[i];
+        }
+    }
+    printf("%d products",count);
+    free(arr);
     return 0;
-}
-void game(){
-    char input;
-    int dir;
-    printBoard(curX,curY);
-    printf("You have %d moves\n",board[curY][curX]);
-    printf("To go right press d\nTo go down press s\nTo go left press a\nTo go up press w\nTo go back press b\n");
-    fflush(stdin);
-    scanf("%c",&input);
-    switch(input){
-        case 'w':
-            dir=1;
-            break;
-        case 'd':
-            dir=2;
-            break;
-        case 's':
-            dir=3;
-            break;
-        case 'a':
-            dir=4;
-            break;
-        case 'b':
-            goBack();
-            break;
-        default:
-            printf("Invalid input");
-            game();
-            break;
-    }
-    move(dir);
-    if(curX==6&&curY==6){
-        printf("You have won");
-    }else{
-        game();
-    }
-}
-void move(int dir){
-    switch (dir)
-    {
-    case 1:
-        if(curY-board[curY][curX]>=0){
-            oldY=curY;
-            curY-=board[curY][curX];
-        }
-        break;
-    case 2:
-        if(curX+board[curY][curX]<7){
-            oldX=curX;
-            curX+=board[curY][curX];
-        }
-        break;
-    case 3:
-        if(curY+board[curY][curX]<7){
-            oldY=curY;
-            curY+=board[curY][curX];
-        }
-        break;
-    case 4:
-        if(curX-board[curY][curX]>=0){
-            oldX=curX;
-            curX-=board[curY][curX];
-        }
-        break;  
-    default:
-        break;
-    }
-}
-void goBack(){
-    curX=oldX;
-    curY=oldY;
-}
-void printBoard(int curX, int curY){
-    for(int i=0;i<7;i++){
-        printf("\n");
-        for(int j=0;j<7;j++){
-            if(j==curX&&i==curY){
-                printf(" P ");
-            }else{
-                printf(" %d ",board[i][j]);
-            }
-        }
-    }
-    printf("\n");
 }
