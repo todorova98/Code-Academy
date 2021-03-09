@@ -1,0 +1,6 @@
+Write a program to find the total number of
+lines in a text file.
+Create a file that contains several lines of text.
+Be careful where you position the file.
+Open the file. Use a variable to
+count the number of rows.

@@ -1,0 +1,4 @@
+Task 16.
+Write a program that removes from the file a line number and
+removes this line from the file. (Hint: Do not delete from the original file, but
+save the contents of the file without the specific line in another file).

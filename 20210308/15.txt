@@ -1,0 +1,6 @@
+Task 15.
+Write a program that prints the contents of a file in reverse
+ed.
+Use the fseek function to go to the end of the file.
+Use the ftell function to find the position of the pointer.
+Display the file in reverse order on the screen.
