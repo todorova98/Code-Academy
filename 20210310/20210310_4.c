@@ -22,7 +22,7 @@ float getPrice(order* orders,int size);
 void menu();
 void toFile(FILE *fp);
 int main(void){
-    fp=fopen("functions","wt");
+    fp=fopen("functions.txt","wt");
     menu();
     fclose(fp);
     return 0;
