@@ -14,17 +14,10 @@ char to[16]; Копирайте символ по символ масива from
 void copy(char *from, char *to);
 
 int main(int argc, char* argv[]){
-    //char *from = (char*)malloc(16 * sizeof(char));
     char *to = (char*)malloc(sizeof(char) * 16);
-    //scanf("%s",from);
-    //copy(from, to);
     copy(argv[1], to);
     printf("%s",to);
-    //printf("from: %s\n",from);
-    //printf("You entered: %s\n",argv[1]);
-    //printf("to: %s\n",to);
     free(to);
-    //free(from);
     return 0;    
 }
 void copy(char *from, char *to){
